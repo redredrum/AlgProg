@@ -1,0 +1,33 @@
+
+#include "pch.h"
+#include <iostream>
+#include <vector>
+#include <cstring>
+#include <iterator>
+
+using namespace std;
+
+template <class T>
+class Graph {
+protected:
+	int size; //размер матрицы (кол-во вершин)
+	vector<vector<T>> matrix; //матрица смежности для хранения графа 
+public:
+	Graph(int size_) { //конструктор
+		if (size_ <= 0) throw runtime_error("Illigal size");
+		size = size_;
+		for (int i = 0; i < size; i++) matrix.push_back(vector<T>(size));
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) cin >> matrix[i][j]; //заполняем связи вершин (направление)
+		}
+	}
+
+};
+
+
+int main()
+{
+	//test
+	int b = 2;
+	Graph<int> g(b);
+}
